@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %} Курс валют в Одессе на сегодня {% endblock title %}
+
+
+{% block  content%}
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>city</th>
+            <th colspan="2">USD</th>
+            <th colspan="2">EUR</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for currency in currency_all %}
+        <tr>
+            <td>
+                <p>{{currency.id}}</p>
+
+            </td>
+            <td>
+                <a href={% url "exchanger:single_exchanger" currency.id %} >{{currency.title}}</a>
+                <span><small class="text-body-secondary">{{currency.working_hours}}</small></span>
+            </td>
+            <td>
+                <span>{{currency.city}}</span>
+                <span>{{currency.address}}</span>
+            </td>
+            <td>
+                <span class="text-muted">Купівля</span>
+                <p><strong>{{currency.buy_usd}}</strong></p>
+            </td>
+            <td>
+                <span class="text-muted">Продаж</span>
+                <p><strong>{{currency.sell_usd}}</strong></p>
+            </td>
+            <td>
+                <span class="text-muted">Купівля</span>
+                <p><strong>{{currency.buy_eur}}</strong></p>
+            </td>
+            <td>
+                <span class="text-muted">Продаж</span>
+                <p><strong>{{currency.sell_eur}}</strong></p>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock  %}
