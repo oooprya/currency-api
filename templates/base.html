@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -18,8 +18,8 @@
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="{% url "exchanger:index" %}">exchanger</a>
               <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Pricing</a>
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              <a class="nav-link"href="/admin">admin</a>
+           
             </div>
           </div>
         </div>
@@ -32,139 +32,11 @@
 
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title fw-semibold">Trade History</h5>
-        <p class="card-subtitle mb-0">Trade and the Age of Exploration</p>
-        <div class="table-responsive mt-4">
-          <table class="table table-borderless text-nowrap align-middle mb-0">
-            <tbody>
-              <tr class="bg-light">
-                <td class="rounded-start bg-transparent">
-                  <div class="d-flex align-items-center gap-3">
-                    <div>
-                      <svg class="icon">
-                        <use class="selFromIco" href="/img/lp/finapp_2021/finapp_sprite.svg?v4#ic-coin-USD"></use>
-                    </svg>
-                    </div>
-                    <div>
-                      <h6 class="mb-0">Bitcoin</h6>
-                      <span class="fs-3">BTC</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="bg-transparent"> $981.1254 <i class="ti ti-chevron-down text-danger ms-1 fs-4"></i>
-                </td>
-                <td class="bg-transparent">
-                  <i class="cc USDT me-1 text-primary fs-5" title="USDT"></i> 0.23125
-                </td>
-                <td class="bg-transparent">$1.23560 B</td>
-                <td class="bg-transparent">04 Feb 2023</td>
-                <td class="text-end rounded-end bg-transparent">
-                  <span class="badge bg-danger">transfer</span>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="6"></td>
-              </tr>
-              <tr class="bg-light">
-                <td class="rounded-start bg-transparent">
-                  <div class="d-flex align-items-center gap-3">
-                    <div>
-                      <i class="cc USDT fs-7"></i>
-                    </div>
-                    <div>
-                      <h6 class="mb-0">SUSDereum</h6>
-                      <span class="fs-3">SUSD</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="bg-transparent"> $450.1254 <i class="ti ti-chevron-down text-danger ms-1 fs-4"></i>
-                </td>
-                <td class="bg-transparent">
-                  <i class="cc USDT me-1 text-primary fs-5" title="USDT"></i> 0.45000
-                </td>
-                <td class="bg-transparent">$3.23560 B</td>
-                <td class="bg-transparent">09 Mar 2023</td>
-                <td class="text-end rounded-end bg-transparent">
-                  <span class="badge bg-primary">sell</span>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="6"></td>
-              </tr>
-              <tr class="bg-light">
-                <td class="rounded-start bg-transparent">
-                  <div class="d-flex align-items-center gap-3">
-                    <div>
-                      <i class="cc LTC fs-7"></i>
-                    </div>
-                    <div>
-                      <h6 class="mb-0">Litecoin</h6>
-                      <span class="fs-3">LTC</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="bg-transparent"> $100.1254 <i class="ti ti-chevron-up text-success ms-1 fs-4"></i>
-                </td>
-                <td class="bg-transparent">
-                  <i class="cc BTC me-1 text-danger fs-5" title="BTC"></i> 0.56012
-                </td>
-                <td class="bg-transparent">$2.45620 B</td>
-                <td class="bg-transparent">12 Dec 2023</td>
-                <td class="text-end rounded-end bg-transparent">
-                  <span class="badge bg-success">buy</span>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="6"></td>
-              </tr>
-              <tr class="bg-light">
-                <td class="rounded-start bg-transparent">
-                  <div class="d-flex align-items-center gap-3">
-                    <div>
-                      <i class="cc XRP fs-7"></i>
-                    </div>
-                    <div>
-                      <h6 class="mb-0">XRP</h6>
-                      <span class="fs-3">XRP</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="bg-transparent"> $450.1254 <i class="ti ti-chevron-down text-danger ms-1 fs-4"></i>
-                </td>
-                <td class="bg-transparent">
-                  <i class="cc USDT me-1 text-primary fs-5" title="USDT"></i> 0.45000
-                </td>
-                <td class="bg-transparent">$3.23560 B</td>
-                <td class="bg-transparent">01 Aug 2023</td>
-                <td class="text-end rounded-end bg-transparent">
-                  <span class="badge bg-danger">transfer</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <h5 class="card-title fw-semibold">card-title</h5>
+        <p class="card-subtitle">ard-subtitle</p>
       </div>
     </div>
     
     {% endblock card %}
-    <section class="bg-primary pt-5 pt-xl-9 pb-8">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-lg-7 col-xl-5 pt-lg-5 mb-5 mb-lg-0">
-            <h2 class="fs-12 text-white text-center text-lg-start fw-bolder mb-8">Build your app with our highly
-              customizable Bootstrap based Dashboard</h2>
-            <div class="d-sm-flex align-items-center justify-content-center justify-content-lg-start gap-3">
-              <a href="/admin" class="btn bg-white text-primary fw-semibold d-block mb-3 mb-sm-0 btn-hover-shadow">Login</a>
-              <a href="/admin" class="btn border-white text-white fw-semibold btn-hover-white d-block">Register</a>
-            </div>
-          </div>
-          <div class="col-lg-5 col-xl-5">
-            <div class="text-center text-lg-end">
-              <img src="{% static 'images/business-woman-checking-her-mail.png' %}" alt="" class="img-fluid">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 </body>
 </html>
