@@ -19,7 +19,6 @@ from django.urls import path, include
 from api.models import CategoryResource, CurrencyResource
 from tastypie.api import Api
 
-from . import views
 
 app_name = 'Home'
 
@@ -30,8 +29,8 @@ api.register(category_resource)
 api.register(currency_resource)
 
 urlpatterns = [
-    path('', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('currency/', include('currency.urls')),
+    path('', include('render.urls')),
     path('api/', include(api.urls)),
 ]
