@@ -48,8 +48,9 @@ class CartItem(models.Model):
     cart = models.ForeignKey(Exchanger, on_delete=models.CASCADE)
     item = models.ForeignKey(Currency, on_delete=models.CASCADE)
 
-    buy = models.DecimalField("Покупка", default=0, decimal_places=2, max_digits=10)
-    sell = models.DecimalField("Продажа", default=0, decimal_places=2, max_digits=10)
+    buy = models.DecimalField("Покупка", default=0, decimal_places=2, max_digits=10, blank=True)
+    sell = models.DecimalField("Продажа", default=0, decimal_places=2, max_digits=10, blank=True)
+    sum = models.CharField(max_length=255, default='від 500 до 20,000', blank=True)
 
     class Meta:
         verbose_name = "Валюта"
