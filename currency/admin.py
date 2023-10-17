@@ -8,8 +8,7 @@ class CurrencyInline(admin.TabularInline):
 
 class ExchangerAdmin(admin.ModelAdmin):
     inlines = [CurrencyInline]
-    list_display = ["address", "paid"]
-    list_editable = ["paid"]
+    list_display = ["address"]
 
 
 admin.site.register(Currency)
