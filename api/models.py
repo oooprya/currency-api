@@ -19,5 +19,5 @@ class ExchangerResource(ModelResource):
 
     def dehydrate(self, bundle):
         data_curr = CartItem.objects.all()
-        bundle.data['currency'] =  {str(curr):{"buy": curr.buy, "sell": curr.sell} for curr in data_curr if bundle.obj.address == curr.cart.address}
+        bundle.data['currency'] =  {str(curr):{"buy": curr.buy, "sell": curr.sell, "sum": curr.sum} for curr in data_curr if bundle.obj.address == curr.cart.address}
         return bundle
