@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 
-class Currencys(models.Model):
+class Currency(models.Model):
     name = models.CharField('Валюта', max_length=20, default='usd', unique = True)
 
     def __str__(self):
@@ -21,7 +21,7 @@ class Category(models.Model):
     def __str__(self) -> str:
         return self.title
 
-class Currency(models.Model):
+class Exchanger(models.Model):
     STATUS_CHOICES = (
         ('draft', 'Черновик'),
         ('published', 'Опубликовано'),
@@ -30,15 +30,11 @@ class Currency(models.Model):
     city = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     exchanger_info = models.CharField(max_length=255, blank=True)
-    buy_usd = models.FloatField(null=True, blank=True, default=None)
-    sell_usd = models.FloatField(null=True, blank=True, default=None)
-    buy_eur = models.FloatField(null=True, blank=True, default=None)
-    sell_eur = models.FloatField(null=True, blank=True, default=None)
+
     working_hours = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.title
@@ -46,3 +42,21 @@ class Currency(models.Model):
     class Meta:
         verbose_name = "Обменик"
         verbose_name_plural = "Все Обменики"
+
+class CartItem(models.Model):
+
+    cart = models.ForeignKey(Exchanger, on_delete=models.CASCADE)
+    item = models.ForeignKey(Currency, on_delete=models.CASCADE)
+
+    buy = models.DecimalField(default=0, decimal_places=2, max_digits=10)
+    sell = models.DecimalField(default=0, decimal_places=2, max_digits=10)
+
+    class Meta:
+        verbose_name = "Валюта"
+        verbose_name_plural = "Валюты"
+
+    def total(self):
+        return f'{self.buy}/{self.sell}'
+
+    def __str__(self):
+        return self.item.name

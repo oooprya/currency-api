@@ -1,14 +1,18 @@
 from django.contrib import admin
-from .models import Category, Currency, Currencys
+from .models import Exchanger, Currency, CartItem
 
-@admin.register(Currency)
-class CurrencyAdmin(admin.ModelAdmin):
-    list_display = ['id', 'address', 'city', 'exchanger_info' ]
-    list_display_links = ('address', 'city')
-    list_editable = ['exchanger_info']
 
-admin.site.register(Category)
-admin.site.register(Currencys)
+class CurrencyInline(admin.TabularInline):
+    model = CartItem
+    extra = 1
 
+class ExchangerAdmin(admin.ModelAdmin):
+    inlines = [CurrencyInline]
+    list_display = ["address", "paid"]
+    list_editable = ["paid"]
+
+
+admin.site.register(Currency)
+admin.site.register(Exchanger, ExchangerAdmin)
 
 # Register your models here.

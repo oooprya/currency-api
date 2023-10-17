@@ -1,28 +1,24 @@
 from tastypie.resources import ModelResource
-from currency.models import Category, Currency
+from currency.models import Exchanger, CartItem
 from tastypie.authorization import Authorization
 from .authentication import CustomAuthentication
 
-class CategoryResource(ModelResource):
-    class Meta:
-        queryset = Category.objects.all()
-        resource_name = 'categories'
-        allowed_methods = ['get']
 
-class CurrencyResource(ModelResource):
+data_curr = CartItem.objects.all()
+
+class ExchangerResource(ModelResource):
     class Meta:
-        queryset = Currency.objects.all()
-        resource_name = 'currencys'
+        queryset = Exchanger.objects.all()
+        resource_name = 'exchangers'
         allowed_methods = ['get', 'post','delete']
         authentication = CustomAuthentication()
         authorization = Authorization()
 
     def hydrate(self, bundle):
-        bundle.obj.category_id = bundle.data['category_id']
+        bundle.obj.id = bundle.data['id']
+        bundle.obj.address = bundle.data['address']
         return bundle
 
     def dehydrate(self, bundle):
-        bundle.data['category_id'] = bundle.obj.category
+        bundle.data['currency'] =  {str(curr):{"buy": curr.buy, "sell": curr.sell} for curr in data_curr if bundle.obj.address == curr.cart.address}
         return bundle
-
-
