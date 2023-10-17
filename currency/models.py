@@ -34,7 +34,7 @@ class Exchanger(models.Model):
     working_hours = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft', blank=True)
 
     def __str__(self) -> str:
         return self.title
@@ -46,17 +46,11 @@ class Exchanger(models.Model):
 class CartItem(models.Model):
 
     cart = models.ForeignKey(Exchanger, on_delete=models.CASCADE)
-    item = models.ForeignKey(Currency, on_delete=models.CASCADE)
+    item = models.ForeignKey("Валюта", Currency, on_delete=models.CASCADE)
 
-    buy = models.DecimalField(default=0, decimal_places=2, max_digits=10)
-    sell = models.DecimalField(default=0, decimal_places=2, max_digits=10)
+    buy = models.DecimalField("Покупка", default=0, decimal_places=2, max_digits=10)
+    sell = models.DecimalField("Продажа", default=0, decimal_places=2, max_digits=10)
 
     class Meta:
         verbose_name = "Валюта"
         verbose_name_plural = "Валюты"
-
-    def total(self):
-        return f'{self.buy}/{self.sell}'
-
-    def __str__(self):
-        return self.item.name
