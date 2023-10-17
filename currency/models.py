@@ -27,7 +27,7 @@ class Exchanger(models.Model):
         ('published', 'Опубликовано'),
     )
     title = models.CharField(max_length=255)
-    city = models.CharField(max_length=255)
+    city = models.CharField(max_length=255, default='Одесса')
     address = models.CharField(max_length=255)
     exchanger_info = models.CharField(max_length=255, blank=True)
 

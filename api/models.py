@@ -4,8 +4,6 @@ from tastypie.authorization import Authorization
 from .authentication import CustomAuthentication
 
 
-data_curr = CartItem.objects.all()
-
 class ExchangerResource(ModelResource):
     class Meta:
         queryset = Exchanger.objects.all()
@@ -20,5 +18,6 @@ class ExchangerResource(ModelResource):
         return bundle
 
     def dehydrate(self, bundle):
+        data_curr = CartItem.objects.all()
         bundle.data['currency'] =  {str(curr):{"buy": curr.buy, "sell": curr.sell} for curr in data_curr if bundle.obj.address == curr.cart.address}
         return bundle
