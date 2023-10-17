@@ -54,3 +54,6 @@ class CartItem(models.Model):
     class Meta:
         verbose_name = "Валюта"
         verbose_name_plural = "Валюты"
+
+    def __str__(self) -> str:
+        return self.item.name
