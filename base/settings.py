@@ -47,13 +47,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'currency.apps.CurrencyConfig',
     'api.apps.ApiConfig',
-    'tastypie'
+    'tastypie',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -79,6 +81,10 @@ TEMPLATES = [
     },
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://swap-rocket.onrender.com/",
+    "http://127.0.0.1:5500",
+]
 WSGI_APPLICATION = 'base.wsgi.application'
 
 
