@@ -1,116 +1,31 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static "render/style.css" %}">
-        <title>Swap Rocket - Просто и выгодно обменять валюту</title>
-        <meta property="og:locale" content="ru_UA" />
-        <meta property="og:title" content="Swap Rocket | Просто и выгодно обменять валюту" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://swap-rocket.onrender.com/" />
-        <meta property="og:image" content="{% static "render/banner_og.png" %}" />
-        <meta property="og:image:width" content="512px" />
-        <meta property="og:image:height" content="512px" />
-        <meta property="og:image:alt"
-            content="Сайт по поиску обменных пунктов рядом с вами и возможность забронировать нужную сумму" />
-        <meta property="og:description"
-            content="Сайт по поиску обменных пунктов рядом с вами и возможность забронировать нужную сумму." />
-        <meta property="og:site_name" content="swap-rocket.onrender.com" />
-    </head>
-        {% comment %} <img src="{% static "render/render.png" %}" alt="Render" class="mw-100"> {% endcomment %}
-        <body>
-            <div class="wrap-all">
-                <section class="exchange_currency_form">
-                    <div class="container">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-                        <div class="nav-bar">
-                            <a href="/" title="Главная страница"><img src="{% static "render/logo.png" %}" alt="Swap Rocket"></a>
-                            <nav><a href="/admin" title="Войти admin" class="login-link">Войти</a></nav>
-                        </div>
+    <title>Hello Django on Render!</title>
 
-                        <div class="flex-row">
-                            <div class="text-left">
-                                <h1>Просто и выгодно обменять валюту</h1>
-                                <p>Введите сумму которую хотите продать или купить и нажмите кнопку для поиска обменных пунктах
-                                    рядом с вами</p>
-                            </div>
-                            <div class="main_form">
-                                <form action="" method="get">
-                                    <nav class="tabs">
-                                        <div class="tab-buy active-tab">Купить</div>
-                                        <div class="tab-sell">Продать</div>
-                                    </nav>
-                                    <select name="" id="">
-                                        <option value="USD">USD</option>
-                                        <option value="EURO">EURO</option>
-                                    </select>
-                                    <input type="text" name="" placeholder="500" id="">
-                                    <input type="button" value="Найти где обменять">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="exchange_results" id="exchangers_results">
-                    <div class="container flex-start">
-                       <h2>Найдена Самая низкая продажа</h2>
-                       <div class="exchangers">
-                        <div class="item">
-                            <nav class="currency-tabs">
-                                <div class="tab-sell">Продажа</div>
-                            </nav>
-                            <div class="currency-data">
-                                <div class="currency-value">38,10</div>
-                                <div class="currency-sum">от 500 до 5 00<span class="currency-key">USD</span></div>
-                            </div>
-                            <div class="exchanger-address">Князівська вулиця, 32</div>
-                            <div class="wrap-icon">
-                                <a target="_blank" href="https://maps.app.goo.gl/bdqnmcfXoC35S4jy9">
-                                    <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0.366211 24.8991C0.366211 16.2131 0.366211 11.8701 2.14011 8.59017C3.50288 6.07043 5.57067 4.00263 8.09041 2.63986C11.3703 0.865967 15.7133 0.865967 24.3994 0.865967H25.2281C33.9141 0.865967 38.2571 0.865967 41.537 2.63986C44.0568 4.00263 46.1246 6.07043 47.4873 8.59017C49.2612 11.8701 49.2612 16.2131 49.2612 24.8991C49.2612 33.5851 49.2612 37.9282 47.4873 41.2081C46.1246 43.7278 44.0568 45.7956 41.537 47.1584C38.2571 48.9323 33.9141 48.9323 25.2281 48.9323H24.3994C15.7133 48.9323 11.3703 48.9323 8.09041 47.1584C5.57067 45.7956 3.50288 43.7278 2.14011 41.2081C0.366211 37.9282 0.366211 33.5851 0.366211 24.8991Z" fill="#51D86F" fill-opacity="0.8"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.3995 16.4277C21.1923 16.4277 18.5984 19.0216 18.5984 22.2288C18.5984 26.5796 24.3995 33.0023 24.3995 33.0023C24.3995 33.0023 30.2006 26.5796 30.2006 22.2288C30.2006 19.0216 27.6067 16.4277 24.3995 16.4277ZM20.2558 22.2287C20.2558 19.9415 22.1122 18.0851 24.3995 18.0851C26.6868 18.0851 28.5431 19.9415 28.5431 22.2287C28.5431 24.6155 26.1564 28.1873 24.3995 30.4166C22.6757 28.2039 20.2558 24.5906 20.2558 22.2287Z" fill="#F5F5F5"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.3995 24.3006C25.5437 24.3006 26.4713 23.373 26.4713 22.2288C26.4713 21.0845 25.5437 20.157 24.3995 20.157C23.2552 20.157 22.3276 21.0845 22.3276 22.2288C22.3276 23.373 23.2552 24.3006 24.3995 24.3006Z" fill="#F5F5F5"/>
-                                        </svg>
-                                        Маршрут</a>
-                                <a href="tel:+096 002 81 95">
-                                    <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0.548096 24.9179C0.548096 16.2319 0.548096 11.8888 2.32199 8.60894C3.68476 6.0892 5.75256 4.0214 8.2723 2.65863C11.5522 0.884735 15.8952 0.884735 24.5812 0.884735H25.41C34.096 0.884735 38.439 0.884735 41.7189 2.65863C44.2387 4.0214 46.3065 6.0892 47.6692 8.60894C49.4431 11.8888 49.4431 16.2319 49.4431 24.9179C49.4431 33.6039 49.4431 37.9469 47.6692 41.2268C46.3065 43.7466 44.2387 45.8144 41.7189 47.1771C38.439 48.951 34.096 48.951 25.41 48.951H24.5812C15.8952 48.951 11.5522 48.951 8.2723 47.1771C5.75256 45.8144 3.68476 43.7466 2.32199 41.2268C0.548096 37.9469 0.548096 33.6039 0.548096 24.9179Z" fill="#51D86F" fill-opacity="0.8"/>
-                                        <path d="M17.0316 16.8958C15.9129 18.0063 16.1035 20.1692 17.3051 22.614C19.318 26.4434 22.4445 29.5727 26.272 31.5892C28.7167 32.7908 30.8797 32.9815 31.9902 31.8627M17.015 16.8792L18.3742 15.5119C18.7358 15.1536 19.2242 14.9525 19.7333 14.9525C20.2423 14.9525 20.7308 15.1536 21.0924 15.5119L23.8355 18.2549C24.1267 18.542 24.3134 18.9184 24.3659 19.324C24.4074 19.7186 24.3252 20.1165 24.1307 20.4624C23.9362 20.8084 23.639 21.0853 23.2802 21.255L21.4073 22.1913C22.8708 24.2293 24.6566 26.0153 26.6946 27.4787M31.9902 31.8544L33.3576 30.4952C33.5814 30.261 33.7461 29.9769 33.8383 29.6664C33.9362 29.3348 33.9432 28.983 33.8586 28.6477C33.7741 28.3124 33.601 28.0059 33.3576 27.7603L30.6145 25.0174C30.3273 24.7262 29.951 24.5394 29.5454 24.4869C29.1507 24.4454 28.7529 24.5277 28.407 24.7222C28.0611 24.9167 27.7841 25.2138 27.6145 25.5726L26.678 27.4455" stroke="white" stroke-width="1.65746" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    Звонить</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <nav class="currency-tabs">
-                                <div class="tab-sell">Продажа</div>
-                            </nav>
-                            <div class="currency-data">
-                                <div class="currency-value">38,10</div>
-                                <div class="currency-sum">от 500 до 5 00<span class="currency-key">USD</span></div>
-                            </div>
-                            <div class="exchanger-address">Князівська вулиця, 32</div>
-                            <div class="wrap-icon">
-                                <a target="_blank" href="https://maps.app.goo.gl/bdqnmcfXoC35S4jy9">
-                                    <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0.366211 24.8991C0.366211 16.2131 0.366211 11.8701 2.14011 8.59017C3.50288 6.07043 5.57067 4.00263 8.09041 2.63986C11.3703 0.865967 15.7133 0.865967 24.3994 0.865967H25.2281C33.9141 0.865967 38.2571 0.865967 41.537 2.63986C44.0568 4.00263 46.1246 6.07043 47.4873 8.59017C49.2612 11.8701 49.2612 16.2131 49.2612 24.8991C49.2612 33.5851 49.2612 37.9282 47.4873 41.2081C46.1246 43.7278 44.0568 45.7956 41.537 47.1584C38.2571 48.9323 33.9141 48.9323 25.2281 48.9323H24.3994C15.7133 48.9323 11.3703 48.9323 8.09041 47.1584C5.57067 45.7956 3.50288 43.7278 2.14011 41.2081C0.366211 37.9282 0.366211 33.5851 0.366211 24.8991Z" fill="#51D86F" fill-opacity="0.8"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.3995 16.4277C21.1923 16.4277 18.5984 19.0216 18.5984 22.2288C18.5984 26.5796 24.3995 33.0023 24.3995 33.0023C24.3995 33.0023 30.2006 26.5796 30.2006 22.2288C30.2006 19.0216 27.6067 16.4277 24.3995 16.4277ZM20.2558 22.2287C20.2558 19.9415 22.1122 18.0851 24.3995 18.0851C26.6868 18.0851 28.5431 19.9415 28.5431 22.2287C28.5431 24.6155 26.1564 28.1873 24.3995 30.4166C22.6757 28.2039 20.2558 24.5906 20.2558 22.2287Z" fill="#F5F5F5"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.3995 24.3006C25.5437 24.3006 26.4713 23.373 26.4713 22.2288C26.4713 21.0845 25.5437 20.157 24.3995 20.157C23.2552 20.157 22.3276 21.0845 22.3276 22.2288C22.3276 23.373 23.2552 24.3006 24.3995 24.3006Z" fill="#F5F5F5"/>
-                                        </svg>
-                                        Маршрут</a>
-                                <a href="tel:+096 002 81 95">
-                                    <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0.548096 24.9179C0.548096 16.2319 0.548096 11.8888 2.32199 8.60894C3.68476 6.0892 5.75256 4.0214 8.2723 2.65863C11.5522 0.884735 15.8952 0.884735 24.5812 0.884735H25.41C34.096 0.884735 38.439 0.884735 41.7189 2.65863C44.2387 4.0214 46.3065 6.0892 47.6692 8.60894C49.4431 11.8888 49.4431 16.2319 49.4431 24.9179C49.4431 33.6039 49.4431 37.9469 47.6692 41.2268C46.3065 43.7466 44.2387 45.8144 41.7189 47.1771C38.439 48.951 34.096 48.951 25.41 48.951H24.5812C15.8952 48.951 11.5522 48.951 8.2723 47.1771C5.75256 45.8144 3.68476 43.7466 2.32199 41.2268C0.548096 37.9469 0.548096 33.6039 0.548096 24.9179Z" fill="#51D86F" fill-opacity="0.8"/>
-                                        <path d="M17.0316 16.8958C15.9129 18.0063 16.1035 20.1692 17.3051 22.614C19.318 26.4434 22.4445 29.5727 26.272 31.5892C28.7167 32.7908 30.8797 32.9815 31.9902 31.8627M17.015 16.8792L18.3742 15.5119C18.7358 15.1536 19.2242 14.9525 19.7333 14.9525C20.2423 14.9525 20.7308 15.1536 21.0924 15.5119L23.8355 18.2549C24.1267 18.542 24.3134 18.9184 24.3659 19.324C24.4074 19.7186 24.3252 20.1165 24.1307 20.4624C23.9362 20.8084 23.639 21.0853 23.2802 21.255L21.4073 22.1913C22.8708 24.2293 24.6566 26.0153 26.6946 27.4787M31.9902 31.8544L33.3576 30.4952C33.5814 30.261 33.7461 29.9769 33.8383 29.6664C33.9362 29.3348 33.9432 28.983 33.8586 28.6477C33.7741 28.3124 33.601 28.0059 33.3576 27.7603L30.6145 25.0174C30.3273 24.7262 29.951 24.5394 29.5454 24.4869C29.1507 24.4454 28.7529 24.5277 28.407 24.7222C28.0611 24.9167 27.7841 25.2138 27.6145 25.5726L26.678 27.4455" stroke="white" stroke-width="1.65746" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    Звонить</a>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-            </div>
-        </body>
-
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+          crossorigin="anonymous">
+</head>
+<body>
+    <header class="container mt-4 mb-4">
+        <a href="https://render.com">
+            <img src="{% static "render/render.png" %}" alt="Render" class="mw-100">
+        </a>
+    </header>
+<main class="container">
+    <div class="row text-center justify-content-center">
+        <div class="col">
+            <h1 class="display-4">Hello World!</h1>
+            <a class="nav-link"href="/admin">admin</a>
+        </div>
+    </div>
+</main>
+</body>
 </html>
