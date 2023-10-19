@@ -161,7 +161,6 @@ CORS_ALLOW_METHODS = (
     # "PUT",
 )
 CORS_ALLOWED_ORIGINS = [
-    "https://swap-rocket.onrender.com/",
     'http://localhost:5500',
     "http://127.0.0.1:5500",
 ]
