@@ -150,9 +150,27 @@ if not DEBUG:
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_METHODS = (
+    # "DELETE",
+    "GET",
+    "OPTIONS",
+    # "PATCH",
+    # "POST",
+    # "PUT",
+)
+CORS_ALLOWED_ORIGINS = [
+    "https://swap-rocket.onrender.com/",
+    'http://localhost:5500',
+    "http://127.0.0.1:5500",
+]
+
 CORS_ORIGINS_WHITELIST = [
     "https://swap-rocket.onrender.com/",
     "http://127.0.0.1:5500",
 ]
+CORS_ALLOW_HEADERS = ('content-disposition', 'accept-encoding',
+                      'content-type', 'accept', 'origin', 'Authorization')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
