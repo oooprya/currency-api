@@ -8,7 +8,7 @@ class ExchangerResource(ModelResource):
     class Meta:
         queryset = Exchanger.objects.all()
         resource_name = 'exchangers'
-        allowed_methods = ['get', 'post','delete']
+        allowed_methods = ['get', 'patch', 'post','delete']
         authentication = CustomAuthentication()
         authorization = Authorization()
 
