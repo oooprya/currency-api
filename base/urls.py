@@ -4,6 +4,7 @@ from api.models import ExchangerResource, CartItemResource
 from tastypie.api import Api
 
 
+
 app_name = 'Home'
 
 api = Api(api_name='v1')
@@ -19,3 +20,4 @@ urlpatterns = [
     path('', include('render.urls')),
     path('api/', include(api.urls)),
 ]
+

@@ -4,6 +4,7 @@ from tastypie.authorization import Authorization
 from .authentication import CustomAuthentication
 
 
+
 class CartItemResource(ModelResource):
     class Meta:
         queryset = CartItem.objects.all()
