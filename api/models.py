@@ -4,6 +4,25 @@ from tastypie.authorization import Authorization
 from .authentication import CustomAuthentication
 
 
+class CartItemResource(ModelResource):
+    class Meta:
+        queryset = CartItem.objects.all()
+        resource_name = 'cartitem'
+        allowed_methods = ['get', 'post','delete']
+        authentication = CustomAuthentication()
+        authorization = Authorization()
+
+    def hydrate(self, bundle):
+        bundle.obj.cart_id = bundle.data['cart_id']
+        bundle.obj.item_id = bundle.data['item_id']
+        return bundle
+
+    def dehydrate(self, bundle):
+        bundle.data['exchanger_id'] = bundle.obj.cart
+        bundle.data['currency_value'] = bundle.obj.item
+        return bundle
+
+
 class ExchangerResource(ModelResource):
     class Meta:
         queryset = Exchanger.objects.all()
