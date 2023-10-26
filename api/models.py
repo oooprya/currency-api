@@ -9,7 +9,7 @@ class CartItemResource(ModelResource):
     class Meta:
         queryset = CartItem.objects.all()
         resource_name = 'cartitem'
-        allowed_methods = ['get', 'post','delete']
+        allowed_methods = ['get', 'post', 'patch','delete']
         authentication = CustomAuthentication()
         authorization = Authorization()
 

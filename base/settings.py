@@ -157,7 +157,7 @@ CORS_ALLOW_METHODS = (
     "GET",
     "OPTIONS",
     "PATCH",
-    # "POST",
+    "POST",
     # "PUT",
 )
 CORS_ALLOWED_ORIGINS = [
