@@ -158,7 +158,7 @@ CORS_ALLOW_METHODS = (
     "OPTIONS",
     "PATCH",
     "POST",
-    # "PUT",
+    "PUT",
 )
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5500',

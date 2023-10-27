@@ -52,6 +52,8 @@ class CartItem(models.Model):
     sell = models.DecimalField("Продажа", decimal_places=2, max_digits=10, blank=True)
     sum = models.CharField("Сумма от 100 до 10000", max_length=255, blank=True)
 
+    updatedAt = models.DateTimeField(auto_now=True)
+
     class Meta:
         verbose_name = "Валюта"
         verbose_name_plural = "Валюты"
