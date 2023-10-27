@@ -4,9 +4,7 @@ from api.models import ExchangerResource, CartItemResource
 from tastypie.api import Api
 
 
-
 app_name = 'Home'
-
 api = Api(api_name='v1')
 
 cartitem_resource = CartItemResource()
@@ -16,8 +14,6 @@ api.register(exchanger_resource)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('currency/', include('currency.urls')),
-    path('', include('render.urls')),
     path('api/', include(api.urls)),
 ]
 
