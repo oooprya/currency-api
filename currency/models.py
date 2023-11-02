@@ -22,8 +22,7 @@ class Category(models.Model):
         return self.title
 
 class Exchanger(models.Model):
-    title = models.CharField(max_length=255)
-    city = models.CharField(max_length=255, default='Одесса')
+    city = models.ForeignKey(Category, on_delete=models.PROTECT)
     address = models.CharField(max_length=255)
     exchanger_info = models.CharField(max_length=255, blank=True)
     telephone = models.CharField(max_length=10, blank=True)
