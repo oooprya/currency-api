@@ -22,7 +22,7 @@ class Category(models.Model):
         return self.title
 
 class Exchanger(models.Model):
-    city = models.ForeignKey(Category, on_delete=models.PROTECT)
+    city = models.ForeignKey(Category, on_delete=models.PROTECT, blank=True)
     address = models.CharField(max_length=255)
     exchanger_info = models.CharField(max_length=255, blank=True)
     telephone = models.CharField(max_length=10, blank=True)
