@@ -19,8 +19,8 @@ class CartItemResource(ModelResource):
         return bundle
 
     def dehydrate(self, bundle):
-        bundle.data['exchanger_id'] = bundle.obj.cart
-        bundle.data['currency_value'] = bundle.obj.item
+        bundle.data['cart_id'] = bundle.obj.cart
+        bundle.data['item_id'] = bundle.obj.item
         return bundle
 
 
