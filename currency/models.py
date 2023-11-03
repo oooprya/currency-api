@@ -15,7 +15,7 @@ class Currency(models.Model):
         verbose_name_plural = "Валюты"
 
 class Category(models.Model):
-    title = models.CharField(max_length=16, default='Одесса', default=0, unique = True)
+    title = models.CharField(max_length=16, default='Одесса', unique = True)
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self) -> str:
