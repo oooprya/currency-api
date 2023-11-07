@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.core.validators import RegexValidator
 
 
 
@@ -14,23 +15,14 @@ class Currency(models.Model):
         verbose_name = "Валюта"
         verbose_name_plural = "Валюты"
 
-class Category(models.Model):
-    title = models.CharField(max_length=16, default='Одесса', unique = True)
-    created_at = models.DateTimeField(default=timezone.now)
-
-    def __str__(self) -> str:
-        return self.title
 
 class Exchanger(models.Model):
     address = models.CharField(max_length=255)
-    city = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True)
     exchanger_info = models.CharField(max_length=255, blank=True)
-    telephone = models.CharField(max_length=10, blank=True)
-
-
+    phoneNumberRegex = RegexValidator(regex = r"^\+?1?\d{8,15}$")
+    telephone = models.CharField(validators = [phoneNumberRegex], max_length = 16, unique = True)
     working_hours = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
-
     updatedAt = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
