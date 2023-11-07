@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import Exchanger, Currency, CartItem, Category
+from django.contrib.auth.models import Permission
 
+admin.site.register(Permission)
 
 class CurrencyInline(admin.TabularInline):
     model = CartItem
