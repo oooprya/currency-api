@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from django.core.validators import RegexValidator
 
 
 
@@ -18,9 +17,9 @@ class Currency(models.Model):
 
 class Exchanger(models.Model):
     address = models.CharField(max_length=255)
+
     exchanger_info = models.CharField(max_length=255, blank=True)
-    phoneNumberRegex = RegexValidator(regex = r"^\+?1?\d{8,15}$")
-    telephone = models.CharField(validators = [phoneNumberRegex], max_length = 16, unique = True)
+    telephone = models.CharField(max_length = 16, help_text='+38096-123-45-67')
     working_hours = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     updatedAt = models.DateTimeField(auto_now=True)
@@ -34,8 +33,8 @@ class Exchanger(models.Model):
 
 class CartItem(models.Model):
 
-    cart = models.ForeignKey(Exchanger, on_delete=models.CASCADE)
-    item = models.ForeignKey(Currency, on_delete=models.CASCADE)
+    exchanger = models.ForeignKey(Exchanger, on_delete=models.CASCADE)
+    currency = models.ForeignKey(Currency, on_delete=models.CASCADE)
 
     buy = models.DecimalField("Покупка", decimal_places=2, max_digits=10, blank=True)
     sell = models.DecimalField("Продажа", decimal_places=2, max_digits=10, blank=True)
@@ -43,9 +42,5 @@ class CartItem(models.Model):
 
     updatedAt = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        verbose_name = "Валюта"
-        verbose_name_plural = "Валюты"
-
     def __str__(self) -> str:
-        return self.item.name
+        return self.currency.name, self.exchanger.address
