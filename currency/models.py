@@ -25,7 +25,7 @@ class Exchanger(models.Model):
     updatedAt = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
-        return self.title
+        return self.address
 
     class Meta:
         verbose_name = "Обменик"
@@ -42,5 +42,9 @@ class CartItem(models.Model):
 
     updatedAt = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = "Курс валют"
+        verbose_name_plural = "Курсы валют"
+
     def __str__(self) -> str:
-        return self.currency.name, self.exchanger.address
+        return f' Обменик: {self.exchanger.address} '
