@@ -37,7 +37,7 @@ class ExchangerResource(ModelResource):
         authorization = Authorization()
 
     def get_array(self, bundle):
-        data_curr = CartItem.objects.all().select_related('exchanger', 'currency').prefetch_related('exchanger', 'currency').order_by('id')
+        data_curr = CartItem.objects.all().select_related('exchanger', 'currency').prefetch_related('exchanger', 'currency').order_by('buy')
         for curr in data_curr:
             bundle.data.currency = {str(curr.currency):{"buy": curr.buy, "sell": curr.sell, "sum": curr.sum} }
         return bundle
